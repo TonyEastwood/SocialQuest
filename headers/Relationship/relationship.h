@@ -2,12 +2,15 @@
 #define RELATIONSHIP_H
 
 #include <QByteArray>
+#include <QFile>
 #include <QList>
 
 #include "../Neuro/neuroConfig.h"
 #include "../utils/utils.h"
 class Relationship {
  private:
+  uint _userId;
+
   int commonRF[RelationFactor::SizeCommon] = {0};
   int languagesRF[RelationFactor::SizeLanguages] = {0};
   int musicRF[RelationFactor::SizeMusic] = {0};
@@ -17,11 +20,13 @@ class Relationship {
   int etcRF[RelationFactor::Interests::SizeEtc] = {0};
 
  public:
-  Relationship();
+  Relationship(uint userId);
   void saveRelationshipLocal();
+  bool loadRelationshipLocal();
 
  private:
   QByteArray serialize();
+  uint sizeAllRelationship();
 };
 
 #endif  // RELATIONSHIP_H

@@ -11,15 +11,16 @@ Client::Client(QGuiApplication *mainApp) {
       Qt::QueuedConnection);
   engine.load(url);
 
-  Initialize();
+  initialize();
+  initializePaths();
 
   (*mainApp).exec();
 }
 
-void Client::Initialize() {
+void Client::initialize() {
   myNetwork = new Network();
   myNeuro = new NeuroNet();
-  myRelation = new Relationship();
+  myRelation = new Relationship(userId);
   myQuestions = new QuestionManager(Config::getPathToQuestions(nativeLanguage));
 }
 
@@ -27,6 +28,9 @@ Client::~Client() {
   delete myNeuro;
   delete myRelation;
   delete myNetwork;
-
   delete myQuestions;
+}
+
+void Client::initializePaths() {
+  QDir().mkpath(Paths::pathToRelationshipLocalFile);
 }

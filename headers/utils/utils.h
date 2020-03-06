@@ -1,6 +1,10 @@
 #ifndef UTILS_H
 #define UTILS_H
+#include <QByteArray>
 #include <QList>
+namespace Paths {
+const QByteArray pathToRelationshipLocalFile = "/data/users/";
+}
 namespace Serialization {
 static QByteArray intToByteArray(const int &number, const int &size) {
   QByteArray num = QByteArray::number(number);
