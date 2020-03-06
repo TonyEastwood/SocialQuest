@@ -20,7 +20,7 @@ SOURCES += \
     sources/Relationship/relationship.cpp \
     sources/client.cpp \
     main.cpp \
-    sources/Questions/questions.cpp
+    sources/Questions/questionmanager.cpp
 
 RESOURCES += qml.qrc
 
@@ -45,7 +45,7 @@ HEADERS += \
     headers/Neuro/neuronet.h \
     headers/Relationship/relationship.h \
     headers/client.h \
-    headers/Questions/questions.h \
+    headers/Questions/questionmanager.h \
     headers/configApp/config.h \
     headers/utils/utils.h
 

@@ -1,15 +1,15 @@
-#ifndef QUESTIONS_H
-#define QUESTIONS_H
+#ifndef QUESTIONMANAGER_H
+#define QUESTIONMANAGER_H
 #include <QByteArray>
 #include <cassert>
 
 #include "../DataBase/database.h"
-class Questions {
+class QuestionManager {
  private:
   DataBase questionsDb;
 
  public:
-  Questions(QByteArray pathDb);
+  QuestionManager(QByteArray pathDb);
 
   bool getIsExist() const;
 
@@ -17,4 +17,4 @@ class Questions {
   void initializeQuestionsByLanguage();
 };
 
-#endif  // QUESTIONS_H
+#endif  // QUESTIONMANAGER_H

@@ -20,7 +20,7 @@ void Client::Initialize() {
   myNetwork = new Network();
   myNeuro = new NeuroNet();
   myRelation = new Relationship();
-  myQuestions = new Questions(Config::getPathToQuestions(nativeLanguage));
+  myQuestions = new QuestionManager(Config::getPathToQuestions(nativeLanguage));
 }
 
 Client::~Client() {

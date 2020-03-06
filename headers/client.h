@@ -6,7 +6,7 @@
 
 #include "Network/network.h"
 #include "Neuro/neuronet.h"
-#include "Questions/questions.h"
+#include "Questions/questionmanager.h"
 #include "Relationship/relationship.h"
 #include "configApp/config.h"
 class Client {
@@ -15,7 +15,7 @@ class Client {
   NeuroNet* myNeuro;
   Relationship* myRelation;
   Network* myNetwork;
-  Questions* myQuestions;
+  QuestionManager* myQuestions;
 
  public:
   Client(QGuiApplication* mainApp);
