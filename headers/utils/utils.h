@@ -1,6 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 #include <QByteArray>
+#include <QDebug>
 #include <QList>
 namespace Paths {
 const QByteArray pathToRelationshipLocalFile = "/data/users/";

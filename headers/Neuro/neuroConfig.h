@@ -1,7 +1,7 @@
 #ifndef NEUROCONFIG_H
 #define NEUROCONFIG_H
 namespace RelationFactor {
-
+//[CHANGE] change id all relation factor on unic when get some consensus
 enum Common {
   CommunicationPeople = 0,       // communication with other people (tet-a-tet)
   PhysicalContactPeople = 1,     // physical contact with people

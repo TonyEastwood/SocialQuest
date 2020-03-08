@@ -1,8 +1,11 @@
 #ifndef QUESTIONTYPES_H
 #define QUESTIONTYPES_H
 #include "question.h"
+//[CHANGE] all
 class QuestionWithSeveralChecks : public Question {
  private:
+  QList<QByteArray> listAnswers;
+
  public:
   QuestionWithSeveralChecks(QByteArray serializedData);
   ~QuestionWithSeveralChecks();

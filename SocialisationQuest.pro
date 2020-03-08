@@ -14,15 +14,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    sources/Answers/answermanager.cpp \
+    sources/Answers/answers.cpp \
     sources/DataBase/database.cpp \
     sources/Network/network.cpp \
     sources/Neuro/neuronet.cpp \
     sources/Questions/question.cpp \
     sources/Questions/questiontypes.cpp \
     sources/Relationship/relationship.cpp \
+    sources/Weights/answerweights.cpp \
     sources/client.cpp \
     main.cpp \
-    sources/Questions/questionmanager.cpp
+    sources/Questions/questionmanager.cpp \
+    sources/crypt/crypt.cpp
 
 RESOURCES += qml.qrc
 
@@ -41,6 +45,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    headers/Answers/answermanager.h \
+    headers/Answers/answers.h \
     headers/DataBase/database.h \
     headers/Network/network.h \
     headers/Neuro/neuroConfig.h \
@@ -48,8 +54,10 @@ HEADERS += \
     headers/Questions/question.h \
     headers/Questions/questiontypes.h \
     headers/Relationship/relationship.h \
+    headers/Weights/answerweights.h \
     headers/client.h \
     headers/Questions/questionmanager.h \
     headers/configApp/config.h \
+    headers/crypt/crypt.h \
     headers/utils/utils.h
 

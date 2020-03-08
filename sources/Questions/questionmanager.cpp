@@ -7,7 +7,8 @@ QuestionManager::QuestionManager(QByteArray pathDb) : questionsDb(pathDb) {
 
 Question *QuestionManager::getQuestionByQuestionType(
     int questionType, QByteArray serializedInitializeData) {
-  if (questionType == 0) return new QuestionWithSeveralChecks();
+  if (questionType == 0)
+    return new QuestionWithSeveralChecks(serializedInitializeData);
 }
 
 void QuestionManager::initializeQuestionsByLanguage() {}

@@ -8,7 +8,7 @@ class Question {
  public:
   Question();
 
-  virtual ~Question();
+  ~Question();
 };
 
 #endif  // QUESTION_H

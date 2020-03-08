@@ -1,6 +1,11 @@
 #include "../../headers/Relationship/relationship.h"
 Relationship::Relationship(uint userId) : _userId(userId) {}
 
+Relationship::Relationship(uint userId, QByteArray serializedAnswerList)
+    : _userId(userId) {
+  //[CHANGE]  parse all answers and calc weights
+}
+
 // save relationship data to local file
 void Relationship::saveRelationshipLocal() {
   QFile file(Paths::pathToRelationshipLocalFile + QByteArray::number(_userId) +
