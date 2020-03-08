@@ -17,6 +17,8 @@ SOURCES += \
     sources/DataBase/database.cpp \
     sources/Network/network.cpp \
     sources/Neuro/neuronet.cpp \
+    sources/Questions/question.cpp \
+    sources/Questions/questiontypes.cpp \
     sources/Relationship/relationship.cpp \
     sources/client.cpp \
     main.cpp \
@@ -43,6 +45,8 @@ HEADERS += \
     headers/Network/network.h \
     headers/Neuro/neuroConfig.h \
     headers/Neuro/neuronet.h \
+    headers/Questions/question.h \
+    headers/Questions/questiontypes.h \
     headers/Relationship/relationship.h \
     headers/client.h \
     headers/Questions/questionmanager.h \

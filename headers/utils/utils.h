@@ -5,6 +5,15 @@
 namespace Paths {
 const QByteArray pathToRelationshipLocalFile = "/data/users/";
 }
+namespace QuestionSpace {
+enum QuestionType {
+  QuestionWithSeveralChecks = 0,
+  QuestionChooseOneFromList = 1,
+  QuestionSetValueInterval = 2,
+  QuestionSetValue = 3
+  //[CHANGE]
+};
+}
 namespace Serialization {
 static QByteArray intToByteArray(const int &number, const int &size) {
   QByteArray num = QByteArray::number(number);
@@ -14,6 +23,7 @@ static QByteArray intToByteArray(const int &number, const int &size) {
   res += num;
   return res;
 }
+
 static QByteArray universalSerialize(const QList<QByteArray> &list,
                                      const int &fiels_size = 4) {
   QByteArray serialized = "";
@@ -48,7 +58,6 @@ static QList<QByteArray> universalDeserialize(const QByteArray &serialized,
   //    serialized.remove(0, pos);
   return list;
 }
-
 }  // namespace Serialization
 
 #endif  // UTILS_H
