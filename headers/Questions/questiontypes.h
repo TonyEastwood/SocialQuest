@@ -10,16 +10,19 @@ class QuestionWithSeveralChecks : public Question {
   QuestionWithSeveralChecks(QByteArray serializedData);
   ~QuestionWithSeveralChecks();
 };
+
 class QuestionChooseOneFromList : public Question {
  public:
   QuestionChooseOneFromList(QByteArray serializedData);
   ~QuestionChooseOneFromList();
 };
+
 class QuestionSetValueInterval : public Question {
  public:
   QuestionSetValueInterval(QByteArray serializedData);
   ~QuestionSetValueInterval();
 };
+
 class QuestionSetValue : public Question {
  public:
   QuestionSetValue(QByteArray serializedData);

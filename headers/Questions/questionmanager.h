@@ -4,6 +4,7 @@
 #include <cassert>
 
 #include "../DataBase/database.h"
+#include "../utils/utils.h"
 #include "questiontypes.h"
 class QuestionManager {
  private:
@@ -13,8 +14,8 @@ class QuestionManager {
   QuestionManager(QByteArray pathDb);
 
   bool getIsExist() const;
-  Question *getQuestionByQuestionType(int questionType,
-                                      QByteArray serializedInitializeData);
+  Question *createQuestionByQuestionType(int questionType,
+                                         QByteArray serializedInitializeData);
 
  private:
   void initializeQuestionsByLanguage();

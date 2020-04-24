@@ -36,25 +36,25 @@ bool Relationship::loadRelationshipLocal() {
       int j = 0;
       int i = 0;
       for (i = 0; i < RelationFactor::SizeCommon; ++i, ++j)
-        commonRF[i] = tempData[j].toInt();
+        relationship[i] = tempData[j].toInt();
 
       for (i = 0; i < RelationFactor::SizeLanguages; ++i, ++j)
-        languagesRF[i] = tempData[j].toInt();
+        relationship[i] = tempData[j].toInt();
 
       for (i = 0; i < RelationFactor::SizeMusic; ++i, ++j)
-        musicRF[i] = tempData[j].toInt();
+        relationship[i] = tempData[j].toInt();
 
       for (i = 0; i < RelationFactor::Interests::SizeArt; ++i, ++j)
-        interestsRF[i] = tempData[j].toInt();
+        relationship[i] = tempData[j].toInt();
 
       for (i = 0; i < RelationFactor::Interests::SizeSport; ++i, ++j)
-        sportRF[i] = tempData[j].toInt();
+        relationship[i] = tempData[j].toInt();
 
       for (i = 0; i < RelationFactor::Interests::SizeIntelligent; ++i, ++j)
-        intelligentRF[i] = tempData[j].toInt();
+        relationship[i] = tempData[j].toInt();
 
       for (i = 0; i < RelationFactor::Interests::SizeEtc; ++i, ++j)
-        etcRF[i] = tempData[j].toInt();
+        relationship[i] = tempData[j].toInt();
     }
   }
 }
@@ -63,25 +63,25 @@ QByteArray Relationship::serialize() {
   QList<QByteArray> serialisationList;
   int i;
   for (i = 0; i < RelationFactor::SizeCommon; ++i)
-    serialisationList.append(QByteArray::number(commonRF[i]));
+    serialisationList.append(QByteArray::number(relationship[i]));
 
   for (i = 0; i < RelationFactor::SizeLanguages; ++i)
-    serialisationList.append(QByteArray::number(languagesRF[i]));
+    serialisationList.append(QByteArray::number(relationship[i]));
 
   for (i = 0; i < RelationFactor::SizeMusic; ++i)
-    serialisationList.append(QByteArray::number(musicRF[i]));
+    serialisationList.append(QByteArray::number(relationship[i]));
 
   for (i = 0; i < RelationFactor::Interests::SizeArt; ++i)
-    serialisationList.append(QByteArray::number(interestsRF[i]));
+    serialisationList.append(QByteArray::number(relationship[i]));
 
   for (i = 0; i < RelationFactor::Interests::SizeSport; ++i)
-    serialisationList.append(QByteArray::number(sportRF[i]));
+    serialisationList.append(QByteArray::number(relationship[i]));
 
   for (i = 0; i < RelationFactor::Interests::SizeIntelligent; ++i)
-    serialisationList.append(QByteArray::number(intelligentRF[i]));
+    serialisationList.append(QByteArray::number(relationship[i]));
 
   for (i = 0; i < RelationFactor::Interests::SizeEtc; ++i)
-    serialisationList.append(QByteArray::number(etcRF[i]));
+    serialisationList.append(QByteArray::number(relationship[i]));
 
   return Serialization::universalSerialize(serialisationList);
 }

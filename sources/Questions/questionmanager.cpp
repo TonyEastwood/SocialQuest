@@ -5,10 +5,17 @@ QuestionManager::QuestionManager(QByteArray pathDb) : questionsDb(pathDb) {
   initializeQuestionsByLanguage();
 }
 
-Question *QuestionManager::getQuestionByQuestionType(
+Question *QuestionManager::createQuestionByQuestionType(
     int questionType, QByteArray serializedInitializeData) {
-  if (questionType == 0)
+  if (questionType == QuestionSpace::QuestionWithSeveralChecks)
     return new QuestionWithSeveralChecks(serializedInitializeData);
+  if (questionType == QuestionSpace::QuestionSetValue)
+    return new QuestionSetValue(serializedInitializeData);
+  if (questionType == QuestionSpace::QuestionSetValueInterval)
+    return new QuestionSetValueInterval(serializedInitializeData);
+  if (questionType == QuestionSpace::QuestionChooseOneFromList)
+    return new QuestionChooseOneFromList(serializedInitializeData);
+  //[CHANGE] ADD new types in the future.
 }
 
 void QuestionManager::initializeQuestionsByLanguage() {}
