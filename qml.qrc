@@ -1,5 +1,15 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>ui/MainWindow.qml</file>
+        <file>ui/MainPages/ProfilePage.qml</file>
+        <file>ui/MainPages/QuestsPage.qml</file>
+        <file>ui/MainPages/HomePage.qml</file>
+        <file>ui/Bars/TopBar.qml</file>
+        <file>ui/Bars/BottomBar.qml</file>
+        <file>ui/Components/TextInRectangle.qml</file>
+        <file>ui/ComponentsForProfilePage/ProfileTab.qml</file>
+        <file>ui/ComponentsForProfilePage/QuestsTab.qml</file>
+        <file>ui/ComponentsForProfilePage/GalleryTab.qml</file>
     </qresource>
 </RCC>

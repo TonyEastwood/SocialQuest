@@ -1,9 +1,15 @@
-import QtQuick 2.14
-import QtQuick.Window 2.14
-
-Window {
+import QtQuick 2.12
+import QtQuick.Window 2.12
+import QtQuick.Controls 2.12
+import "ui"
+ApplicationWindow {
     visible: true
-    width: 375
-    height: 667
+    width: 360
+    height: 652
     title: qsTr("Hello World")
+    color:"green"
+    MainWindow{
+        width: parent.width
+        height: parent.height
+    }
 }
