@@ -1,6 +1,6 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Controls 2.12
 import "../Components"
 import "../ComponentsForProfilePage"
 ListView {
@@ -122,58 +122,69 @@ ListView {
          fontSize:13
           color:"#F4EEEE"
     }
-    TabView{
+    CustomTab{
+        id:customTabView
+        anchors.top: addToContacts.bottom
+        anchors.topMargin: 18
+        height: 35
+        width: parent.width
+    }
+
+    SwipeView{
         id:tabView
 
-        anchors.top: message.bottom
-        anchors.topMargin: 18
+        anchors.top: customTabView.bottom
+        anchors.topMargin: 15
         width: parent.width
         anchors.bottom: parent.bottom
 
 
 
-       Tab{
-           title: "Profile"
+      // Tab{
+          // title: "Profile"
            ProfileTab{
-               anchors.fill: parent
+               visible: tabView.currentIndex==0? true: false
+              // anchors.fill: parent
            }
 
           // anchors.fill: tabView
-       }
-       Tab{
-            title: "Quests"
+      // }
+       //Tab{
+          //  title: "Quests"
        QuestsTab {
-
-           Rectangle { color: "blue" }
+            visible: tabView.currentIndex==1? true: false
+           // anchors.fill: parent
+          // Rectangle { color: "blue" }
           }
-       }
+     //  }
 
-        Tab{
-             title: "Gallery"
+      //  Tab{
+           //  title: "Gallery"
        GalleryTab {
-             anchors.fill: parent
+            visible: tabView.currentIndex==2? true: false
+            // anchors.fill: parent
            Rectangle { color: "green" }
 
-          }
+        //  }
        }
 
-        style: TabViewStyle {
-               frameOverlap: 1
-               tab: Rectangle {
-                   color: styleData.selected ? "steelblue" :"lightsteelblue"
-                   border.color:  "steelblue"
-                   implicitWidth: 120
-                   implicitHeight: 40
-                   radius: 2
-                   Text {
-                       id: text
-                       anchors.centerIn: parent
-                       text: styleData.title
-                       color: styleData.selected ? "white" : "black"
-                   }
-               }
-               frame: Rectangle { color: "#E5E5E5" }
-           }
+//        style: TabViewStyle {
+//               frameOverlap: 1
+//               tab: Rectangle {
+//                   color: styleData.selected ? "steelblue" :"lightsteelblue"
+//                   border.color:  "steelblue"
+//                   implicitWidth: 120
+//                   implicitHeight: 40
+//                   radius: 2
+//                   Text {
+//                       id: text
+//                       anchors.centerIn: parent
+//                       text: styleData.title
+//                       color: styleData.selected ? "white" : "black"
+//                   }
+//               }
+//               frame: Rectangle { color: "#E5E5E5" }
+//           }
     }
 
 }

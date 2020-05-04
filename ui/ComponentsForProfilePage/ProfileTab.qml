@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 import "../Components"
 Item {
-anchors.fill: parent
+//anchors.fill: parent
 
 
       TextInRectangle

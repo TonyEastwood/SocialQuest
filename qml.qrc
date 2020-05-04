@@ -11,5 +11,6 @@
         <file>ui/ComponentsForProfilePage/ProfileTab.qml</file>
         <file>ui/ComponentsForProfilePage/QuestsTab.qml</file>
         <file>ui/ComponentsForProfilePage/GalleryTab.qml</file>
+        <file>ui/ComponentsForProfilePage/CustomTab.qml</file>
     </qresource>
 </RCC>

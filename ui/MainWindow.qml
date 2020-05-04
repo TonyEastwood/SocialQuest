@@ -43,12 +43,12 @@ Item {
            Page {
                Rectangle{
                    anchors.fill:parent
-                   color:"yellow"
+                   color:"black"
                }
                Text
                {
                    text:"Chat etc."
-                   color: "black"
+                   color: "white"
                }
            }
            ProfilePage {
