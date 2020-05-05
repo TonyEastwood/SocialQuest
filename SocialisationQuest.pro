@@ -28,7 +28,8 @@ SOURCES += \
     sources/Questions/questionmanager.cpp \
     sources/crypt/crypt.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    resourcetest.qrc
 
 TRANSLATIONS += \
     SocialisationQuest_ru_RU.ts
