@@ -11,8 +11,12 @@ Item {
 
     Image{
         id:imageId
+        width: root.width
+
+        height: root.height-2*y-35
+        y:5
         source:sourceToImage
-        anchors.fill: parent
+       // anchors.fill: parent
         fillMode: Image.PreserveAspectFit
     }
     Rectangle{

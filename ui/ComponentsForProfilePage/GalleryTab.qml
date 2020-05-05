@@ -34,16 +34,18 @@ Item{
            id: dndGrid
             // anchors.fill: parent
            width: parent.width
-           height: 550
+           height: 330-imageViewer.y
            clip: true
-           interactive: imageViewer.y<=-233? true: false
-           anchors.horizontalCenter: parent
-           anchors.leftMargin: 10
-           anchors.rightMargin : 10
+           interactive:true// imageViewer.y<=-234? true: false
+          // anchors.horizontalCenter: parent
+          // anchors.leftMargin: 10
+         //  anchors.rightMargin : 10
            y:15
+
          //  anchors.margins: 10
-           cellWidth: 110
-           cellHeight: 110
+
+           cellWidth: 120
+           cellHeight: 120
            model: dndModel
            delegate: dndDelegate
            ScrollIndicator.vertical: ScrollIndicator {
@@ -71,8 +73,8 @@ Item{
                  id: itemImage
                  source: imagePath
                  anchors.centerIn: parent
-                 width: 100
-                 height: 100
+                 width: 110
+                 height: 110
                  smooth: true
                  fillMode: Image.PreserveAspectFit
 
@@ -153,7 +155,7 @@ Item{
         drag.minimumY: -234
         drag.maximumY: 0
         onMouseYChanged: console.log("y="+imageViewer.y)
-        enabled: dndGrid.contentY<=5? true : false//imageViewer.y<=-234? false: true
+       // enabled: dndGrid.contentY<=5? true : false//imageViewer.y<=-234? false: true
 
         onReleased: animationDrop.start()
     }
