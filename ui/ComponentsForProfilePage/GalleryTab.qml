@@ -24,7 +24,7 @@ Item{
     Rectangle {
         //anchors.fill: parent
         width: parent.width
-        height: 600
+        height: 652
         color: 'black'
         focus: true
       //  y:dndGrid.y
@@ -34,10 +34,14 @@ Item{
            id: dndGrid
             // anchors.fill: parent
            width: parent.width
-           height: 600
+           height: 550
            clip: true
-           interactive: imageViewer.y==-234? true: false
-           anchors.margins: 10
+           interactive: imageViewer.y<=-233? true: false
+           anchors.horizontalCenter: parent
+           anchors.leftMargin: 10
+           anchors.rightMargin : 10
+           y:15
+         //  anchors.margins: 10
            cellWidth: 110
            cellHeight: 110
            model: dndModel
@@ -71,6 +75,19 @@ Item{
                  height: 100
                  smooth: true
                  fillMode: Image.PreserveAspectFit
+
+                 MouseArea {
+
+                        anchors.fill: parent
+                        onReleased: {
+                            if(imageOverGalleryId.visible==false){
+                            console.log("clicked on image")
+                            imageOverGalleryId.sourceToImage =parent.source
+                        imageOverGalleryId.visible=true
+                        animationTopDrop.start()
+                            }
+                        }
+                    }
              }
          }
      }
@@ -116,11 +133,21 @@ Item{
                 to: imageViewer.y<=-60? -234: 0
                 duration: 200
                 }
+    PropertyAnimation{
+                id: animationTopDrop
+                target: imageViewer
+                properties: "y"
+                to: -234
+                duration: 200
+                }
 
 
     MouseArea {
         id:mouseDragArea
-        anchors.fill: parent
+       // anchors.fill: parent
+        anchors.top: imageViewer.top
+        width: imageViewer.width
+        height: 70
         drag.target: imageViewer
         drag.axis: Drag.YAxis
         drag.minimumY: -234
@@ -130,4 +157,14 @@ Item{
 
         onReleased: animationDrop.start()
     }
+
+    ImageOverGallery{
+        id:imageOverGalleryId
+        z:3
+        visible: false
+        width: parent.width
+        height:652
+      //  sourceToImage:
+    }
+
 }

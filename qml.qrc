@@ -12,5 +12,6 @@
         <file>ui/ComponentsForProfilePage/QuestsTab.qml</file>
         <file>ui/ComponentsForProfilePage/GalleryTab.qml</file>
         <file>ui/ComponentsForProfilePage/CustomTab.qml</file>
+        <file>ui/ComponentsForProfilePage/ImageOverGallery.qml</file>
     </qresource>
 </RCC>

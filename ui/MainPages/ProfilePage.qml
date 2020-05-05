@@ -134,7 +134,7 @@ ListView {
         id:tabView
 
         anchors.top: customTabView.bottom
-        anchors.topMargin: 15
+        anchors.topMargin: 0
         width: parent.width
         anchors.bottom: parent.bottom
 
