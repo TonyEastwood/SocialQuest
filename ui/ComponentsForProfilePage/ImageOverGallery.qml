@@ -1,11 +1,16 @@
 import QtQuick 2.14
 import QtQuick.Dialogs 1.0
 import QtQuick.Window 2.1
+import "ListModels"
 Item {
     id:root
-    property string sourceToImage: "qrc:/testresources/testDir/images/14.jpg"
+   // property string sourceToImage:
     property int highestZ: 0
-    property var currentFrame: undefined
+
+    property int currentImageIndex: 0
+    GalleryModel{
+        id: galleryModelId
+    }
 
 //    Rectangle{
 //        id:blankScreenArea
@@ -37,7 +42,7 @@ Item {
                 width: photoFrame.width
                 height:  photoFrame.height
                 fillMode: Image.PreserveAspectFit
-                source: sourceToImage
+                source:  galleryModelId.get(currentImageIndex).imagePath
                 antialiasing: true
 
 
@@ -75,6 +80,19 @@ Item {
 //                }
 
                 onReleased: {
+                    if(image.x<-50 && currentImageIndex<galleryModelId.count-1)
+                    {
+                        currentImageIndex++
+                        //image.source=galleryModelId.get(currentImageIndex).imagePath
+                    }
+
+                    // This is available in all editors.
+                    if(image.x>50 && currentImageIndex>0)
+                    {
+                        currentImageIndex--
+                       // image.source=galleryModelId.get(currentImageIndex).imagePath
+                    }
+
                     animationScaleRestore.start()
                     animationRotationRestore.start()
                     animationXRestore.start()

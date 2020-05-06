@@ -13,5 +13,6 @@
         <file>ui/ComponentsForProfilePage/GalleryTab.qml</file>
         <file>ui/ComponentsForProfilePage/CustomTab.qml</file>
         <file>ui/ComponentsForProfilePage/ImageOverGallery.qml</file>
+        <file>ui/ComponentsForProfilePage/ListModels/GalleryModel.qml</file>
     </qresource>
 </RCC>

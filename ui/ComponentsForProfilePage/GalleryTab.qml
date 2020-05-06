@@ -1,5 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import "ListModels"
 Item{
     id: imageViewer
     //height: parent.height
@@ -84,8 +85,13 @@ Item{
                         onReleased: {
                             if(imageOverGalleryId.visible==false){
                             console.log("clicked on image")
-                            imageOverGalleryId.sourceToImage =parent.source
+
+                          //  imageOverGalleryId.sourceToImage =parent.source
+                                  imageOverGalleryId.currentImageIndex=index
+
                         imageOverGalleryId.visible=true
+
+
                         animationTopDrop.start()
                             }
                         }
@@ -93,33 +99,11 @@ Item{
              }
          }
      }
-    ListModel {
-           id: dndModel
-           ListElement { imagePath: "qrc:/testresources/testDir/images/1.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/2.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/3.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/4.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/5.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/6.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/7.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/8.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/9.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/10.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/11.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/12.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/13.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/14.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/15.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/16.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/17.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/18.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/19.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/20.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/21.jpg" }
+    GalleryModel{
+        id: dndModel
+    }
 
 
-
-       }
 //    Flickable{
 //        id:flickItem
 //        width: parent.width; height: parent.width
@@ -158,9 +142,12 @@ Item{
        // enabled: dndGrid.contentY<=5? true : false//imageViewer.y<=-234? false: true
         enabled: !imageOverGalleryId.visible
         onReleased: animationDrop.start()
+
+
     }
 
     ImageOverGallery{
+
         id:imageOverGalleryId
         z:3
         visible: false
