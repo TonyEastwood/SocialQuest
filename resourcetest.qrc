@@ -21,5 +21,6 @@
         <file>testDir/images/3.jpg</file>
         <file>testDir/images/2.jpg</file>
         <file>testDir/images/1.jpg</file>
+        <file>testDir/images/achieve.png</file>
     </qresource>
 </RCC>

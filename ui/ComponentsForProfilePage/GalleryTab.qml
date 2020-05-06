@@ -56,7 +56,7 @@ Item{
 
                     console.log("position="+scrollVertical.position)
                     console.log("contentY="+dndGrid.contentY)
-                    console.log("threshold="+mouseDragArea.drag.threshold)
+                    //console.log("threshold="+mouseDragArea.drag.threshold)
                 }
 
            }
@@ -116,7 +116,7 @@ Item{
            ListElement { imagePath: "qrc:/testresources/testDir/images/19.jpg" }
            ListElement { imagePath: "qrc:/testresources/testDir/images/20.jpg" }
            ListElement { imagePath: "qrc:/testresources/testDir/images/21.jpg" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/14.jpg" }
+
 
 
        }
@@ -156,7 +156,7 @@ Item{
         drag.maximumY: 0
         onMouseYChanged: console.log("y="+imageViewer.y)
        // enabled: dndGrid.contentY<=5? true : false//imageViewer.y<=-234? false: true
-
+        enabled: !imageOverGalleryId.visible
         onReleased: animationDrop.start()
     }
 
