@@ -12,4 +12,5 @@ ApplicationWindow {
         width: parent.width
         height: parent.height
     }
+
 }
