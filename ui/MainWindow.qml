@@ -40,16 +40,10 @@ Item {
                    color: "black"
                }
            }
-           Page {
-               Rectangle{
-                   anchors.fill:parent
-                   color:"black"
-               }
-               Text
-               {
-                   text:"Chat etc."
-                   color: "white"
-               }
+           ChatPage {
+               width: view.width
+               height: view.height
+
            }
            ProfilePage {
                 width: view.width

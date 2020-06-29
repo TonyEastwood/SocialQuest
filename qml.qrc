@@ -14,5 +14,8 @@
         <file>ui/ComponentsForProfilePage/CustomTab.qml</file>
         <file>ui/ComponentsForProfilePage/ImageOverGallery.qml</file>
         <file>ui/ComponentsForProfilePage/ListModels/GalleryModel.qml</file>
+        <file>ui/MainPages/ChatPage.qml</file>
+        <file>ui/ComponentsForChatPage/ChatTab.qml</file>
+        <file>ui/ComponentsForChatPage/AnonymousSearchTab.qml</file>
     </qresource>
 </RCC>
