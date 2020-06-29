@@ -1,26 +1,26 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import "ListModels"
-Item{
+
+Item {
     id: imageViewer
     //height: parent.height
-   // width: parent.width
+    // width: parent.width
     //y:
-   // anchors.top: parent.top
-   // onYChanged: console.log("margin="+imageViewer.anchors.topMargin);
+    // anchors.top: parent.top
+    // onYChanged: console.log("margin="+imageViewer.anchors.topMargin);
     //anchors.topMargin: -flickItem.contentY//dndGrid.contentHeight*scrollVertical.position
-  //  anchors.bottom: parent.bottom
+    //  anchors.bottom: parent.bottom
     Rectangle {
-        id:blackScreen
+        id: blackScreen
         //anchors.fill: parent
         width: parent.width
-        height: parent.height*2
-        y:-parent.height
+        height: parent.height * 2
+        y: -parent.height
         color: 'black'
-        opacity: -imageViewer.y/234
+        opacity: -imageViewer.y / 234
 
-      //  y:dndGrid.y
-
+        //  y:dndGrid.y
     }
     Rectangle {
         //anchors.fill: parent
@@ -28,132 +28,165 @@ Item{
         height: 652
         color: 'black'
         focus: true
-      //  y:dndGrid.y
-
+        //  y:dndGrid.y
     }
     GridView {
-           id: dndGrid
-            // anchors.fill: parent
-           width: parent.width
-           height: 330-imageViewer.y
-           clip: true
-           interactive:true// imageViewer.y<=-234? true: false
-          // anchors.horizontalCenter: parent
-          // anchors.leftMargin: 10
-         //  anchors.rightMargin : 10
-           y:15
+        id: dndGrid
+        // anchors.fill: parent
+        width: parent.width
+        height: 330 - imageViewer.y
+        clip: true
+        interactive: true // imageViewer.y<=-234? true: false
 
-         //  anchors.margins: 10
+        // anchors.horizontalCenter: parent
+        // anchors.leftMargin: 10
+        //  anchors.rightMargin : 10
+        y: 15
 
-           cellWidth: 120
-           cellHeight: 120
-           model: dndModel
-           delegate: dndDelegate
-           ScrollIndicator.vertical: ScrollIndicator {
-               id:scrollVertical
-               active: dndGrid.contentHeight / dndGrid.height > 1
-                onPositionChanged:
-                {
+        //  anchors.margins: 10
+        cellWidth: 120
+        cellHeight: 120
+        model: dndModel
+        delegate: dndDelegate
+        onFlickEnded: {
+            console.log("FlickEnded")
+        }
+        onDragEnded:
+        {
+            if(dndGrid.contentY<-10)
+            {
+                animationDropBottom.start()
+            }
+        }
 
-                    console.log("position="+scrollVertical.position)
-                    console.log("contentY="+dndGrid.contentY)
-                    //console.log("threshold="+mouseDragArea.drag.threshold)
-                }
 
-           }
+        ScrollIndicator.vertical: ScrollIndicator {
+            id: scrollVertical
+            active: dndGrid.contentHeight / dndGrid.height > 1
+            onPositionChanged: {
 
-       }
+                console.log("position=" + scrollVertical.position)
+                console.log("contentY=" + dndGrid.contentY)
+                //console.log("threshold="+mouseDragArea.drag.threshold)
+            }
+
+        }
+        //        MouseArea{
+        //            anchors.fill: parent
+        //            onExited: {
+
+        //                console.log("xyuuuu")
+        //                //}
+        //            }
+        //        }
+    }
 
     Component {
-         id: dndDelegate
-         Item {
-             id: wrapper
-             width: dndGrid.cellWidth
-             height: dndGrid.cellHeight
-             Image {
-                 id: itemImage
-                 source: imagePath
-                 anchors.centerIn: parent
-                 width: 110
-                 height: 110
-                 smooth: true
-                 fillMode: Image.PreserveAspectFit
+        id: dndDelegate
+        Item {
+            id: wrapper
+            width: dndGrid.cellWidth
+            height: dndGrid.cellHeight
+            Image {
+                id: itemImage
+                source: imagePath
+                anchors.centerIn: parent
+                width: 110
+                height: 110
+                smooth: true
+                fillMode: Image.PreserveAspectFit
 
-                 MouseArea {
+                MouseArea {
 
-                        anchors.fill: parent
-                        onReleased: {
-                            if(imageOverGalleryId.visible==false){
+                    anchors.fill: parent
+                    onReleased: {
+                        if (imageOverGalleryId.visible == false) {
                             console.log("clicked on image")
 
-                          //  imageOverGalleryId.sourceToImage =parent.source
-                                  imageOverGalleryId.currentImageIndex=index
+                            //  imageOverGalleryId.sourceToImage =parent.source
+                            imageOverGalleryId.currentImageIndex = index
 
-                        imageOverGalleryId.visible=true
+                            imageOverGalleryId.visible = true
 
-
-                        animationTopDrop.start()
-                            }
+                            animationDropTop.start()
                         }
                     }
-             }
-         }
-     }
-    GalleryModel{
+                }
+            }
+        }
+    }
+    GalleryModel {
         id: dndModel
     }
 
+    //    Flickable{
+    //        id:flickItem
+    //        width: parent.width; height: parent.width
+    //        contentWidth: width; contentHeight: 4*height
+    //        interactive:imageViewer.anchors.topMargin<-231? false: true
 
-//    Flickable{
-//        id:flickItem
-//        width: parent.width; height: parent.width
-//        contentWidth: width; contentHeight: 4*height
-//        interactive:imageViewer.anchors.topMargin<-231? false: true
-
-
-//    }
-    PropertyAnimation{
-                id: animationDrop
-                target: imageViewer
-                properties: "y"
-                to: imageViewer.y<=-60? -234: 0
-                duration: 200
-                }
-    PropertyAnimation{
-                id: animationTopDrop
-                target: imageViewer
-                properties: "y"
-                to: -234
-                duration: 200
-                }
-
+    //    }
+    PropertyAnimation {
+        id: animationDrop
+        target: imageViewer
+        properties: "y"
+        to: imageViewer.y <= -60 ? -234 : 0
+        duration: 200
+    }
+    PropertyAnimation {
+        id: animationDropTop
+        target: imageViewer
+        properties: "y"
+        to: -234
+        duration: 200
+    }
+    PropertyAnimation {
+        id: animationDropBottom
+        target: imageViewer
+        properties: "y"
+        to: 0
+        duration: 200
+    }
 
     MouseArea {
-        id:mouseDragArea
-       // anchors.fill: parent
+        id: mouseDragArea
+        //z:-1
         anchors.top: imageViewer.top
         width: imageViewer.width
-        height: 70
+        height: 30
         drag.target: imageViewer
         drag.axis: Drag.YAxis
         drag.minimumY: -234
         drag.maximumY: 0
-        onMouseYChanged: console.log("y="+imageViewer.y)
-       // enabled: dndGrid.contentY<=5? true : false//imageViewer.y<=-234? false: true
+        onMouseYChanged: console.log("y=" + imageViewer.y)
+        // enabled: dndGrid.contentY<=5? true : false//imageViewer.y<=-234? false: true
         enabled: !imageOverGalleryId.visible
-        onReleased: animationDrop.start()
+        //onClicked: mouse.accepted = false
 
+       // preventStealing:true
+        //onPressAndHold: mouse.accepted=true
+        onReleased:
+        {
+
+            animationDrop.start()
+
+        }
+        Rectangle{
+            anchors.fill: parent
+            color:"aqua"
+        }
+
+        //propagateComposedEvents:true
 
     }
 
-    ImageOverGallery{
+    ImageOverGallery {
 
-        id:imageOverGalleryId
-        z:3
+        id: imageOverGalleryId
+        z: 3
         visible: false
         width: parent.width
-        height:652
-      //  sourceToImage:
+        height: 652
+        //  sourceToImage:
     }
-
 }

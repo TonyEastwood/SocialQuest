@@ -142,83 +142,83 @@ Flickable
     }
 
     GridView {
-           id: dndGrid
+        id: dndGrid
 
-           width:parent.width
+        width:parent.width
 
-           anchors.top: achievements.bottom
-           anchors.topMargin: 10
-           anchors.bottom: parent.bottom
+        anchors.top: achievements.bottom
+        anchors.topMargin: 10
+        anchors.bottom: parent.bottom
 
-           interactive:false
+        interactive:false
 
-           cellWidth: 120
-           cellHeight: 120
+        cellWidth: 120
+        cellHeight: 120
 
-           model: achievesModel
-           delegate: achieveDelegate
-       }
+        model: achievesModel
+        delegate: achieveDelegate
+    }
 
     Component {
-         id: achieveDelegate
+        id: achieveDelegate
 
-         Rectangle {
-             id: wrapper
-             width: dndGrid.cellWidth-5
-             height: dndGrid.cellHeight-5
-             color: "grey"
-             Image {
-                 id: itemImage
-                 source: imagePath
-                 anchors.centerIn: parent
-                 width: 110
-                 height: 110
-                 smooth: true
-                 fillMode: Image.PreserveAspectFit
+        Rectangle {
+            id: wrapper
+            width: dndGrid.cellWidth-5
+            height: dndGrid.cellHeight-5
+            color: "grey"
+            Image {
+                id: itemImage
+                source: imagePath
+                anchors.centerIn: parent
+                width: 110
+                height: 110
+                smooth: true
+                fillMode: Image.PreserveAspectFit
 
-                 MouseArea {
+                MouseArea {
 
-                        anchors.fill: parent
-                        onReleased: {
+                    anchors.fill: parent
+                    onReleased: {
 
-                            console.log("clicked on image")
+                        console.log("clicked on image")
 
-                            }
-                        }
                     }
-             }
-         }
+                }
+            }
+        }
+    }
     ListModel {
-           id: achievesModel
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
-           ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        id: achievesModel
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
+        ListElement { imagePath: "qrc:/testresources/testDir/images/achieve.png" }
 
 
 
 
-       }
+    }
 
 
 
